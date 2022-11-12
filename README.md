@@ -2,6 +2,10 @@
 
 Codes developed for a course on numerical Linear Algebra.
 
+Original repo: https://www.bitbucket.org/cpraveen/nla
+
+Mirrored at: https://www.github.com/cpraveen/nla
+
 ## DATA files
 
 Some of the notebooks need some files to run which must be downloaded from bitbucket. If you are running from terminal, you can download all files once
