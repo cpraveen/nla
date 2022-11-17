@@ -25,6 +25,10 @@ Run the code in binder: [![Binder](https://mybinder.org/badge_logo.svg)](https:/
 
 ## Open in nbviewer (view only, cannot run)
 
+Open the `src` directory https://nbviewer.org/github/cpraveen/nla/tree/master/src
+
+or the individual files
+
 * Applications of SVD
   * [Image compression using SVD](https://nbviewer.org/github/cpraveen/nla/blob/master/src/dog.ipynb)
   * [Ovarian cancer data](https://nbviewer.org/github/cpraveen/nla/blob/master/src/ovarian_cancer.ipynb)
