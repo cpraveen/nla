@@ -23,9 +23,9 @@ You can get a free account at https://studiolab.sagemaker.aws and clone this git
 
 Run the code in binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cpraveen/nla/HEAD). When you first click on this link, it may take a few minutes to set up the environment with all required packages. Then you can edit and run the notebooks, but you cannot save them; but you can download the notebooks to your computer.
 
-## Open in nbviewer (view only, cannot run)
+## Open in nbviewer (read only, cannot run)
 
-Open the `src` directory https://nbviewer.org/github/cpraveen/nla/tree/master/src
+Open the `src` directory: https://nbviewer.org/github/cpraveen/nla/tree/master/src
 
 or the individual files
 
@@ -55,3 +55,14 @@ The following links open individual files in colab.
 * [Floating point arithmetic](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/floating_point.ipynb)
 * [Sensitivity of polynomial roots: Wilkinson polynomial](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/wilkinson_poly.ipynb)
 * [Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
+
+## More code examples
+
+http://www.github.com/cpraveen/na
+
+## References
+
+* L. N. Trefethen and Bau, Numerical Linear Algebra, SIAM.
+* S. L. Brunton and J. N. Katz, Data Driven Science and Engineering: Machine Learning, Dynamical Systems and Control, Cambridge Univ. Press.
+* E. Darve and M. Wootters, Numerical Linear Algebra with Julia, SIAM.
+* G. H. Golub and C. F. Van Loan, Matrix Computations, Hindustan Book Agency.
