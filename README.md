@@ -38,6 +38,7 @@ or the individual files
 * [Floating point arithmetic](https://nbviewer.org/github/cpraveen/nla/blob/master/src/floating_point.ipynb)
 * [Sensitivity of polynomial roots: Wilkinson polynomial](https://nbviewer.org/github/cpraveen/nla/blob/master/src/wilkinson_poly.ipynb)
 * [Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
+* [Cholesky decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 
 
 ## Open in colab
@@ -55,6 +56,7 @@ The following links open individual files in colab.
 * [Floating point arithmetic](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/floating_point.ipynb)
 * [Sensitivity of polynomial roots: Wilkinson polynomial](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/wilkinson_poly.ipynb)
 * [Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
+* [Cholesky decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 
 ## More code examples
 
