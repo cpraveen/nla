@@ -6,6 +6,10 @@ Original repo: https://www.bitbucket.org/cpraveen/nla
 
 Mirrored at: https://www.github.com/cpraveen/nla
 
+## Python tutorial
+
+The codes are written in Python and as Jupyter notebooks. A short Python tutorial is available [here](http://www.github.com/cpraveen/python).
+
 ## DATA files
 
 Some of the notebooks need some files to run which must be downloaded from bitbucket. If you are running from terminal, you can download all files once
@@ -37,6 +41,7 @@ or the individual files
 * [Least squares problems](https://nbviewer.org/github/cpraveen/nla/blob/master/src/least_squares.ipynb)
 * [Floating point arithmetic](https://nbviewer.org/github/cpraveen/nla/blob/master/src/floating_point.ipynb)
 * [Sensitivity of polynomial roots: Wilkinson polynomial](https://nbviewer.org/github/cpraveen/nla/blob/master/src/wilkinson_poly.ipynb)
+* [Stability of least squares algorithms](https://nbviewer.org/github/cpraveen/nla/blob/master/src/least_squares_stability.ipynb)
 * [Triangular systems](https://nbviewer.org/github/cpraveen/nla/blob/master/src/tri_sys.ipynb)
 * [Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
 * [Cholesky decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
@@ -56,6 +61,7 @@ The following links open individual files in colab.
 * [Least squares problems](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/least_squares.ipynb)
 * [Floating point arithmetic](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/floating_point.ipynb)
 * [Sensitivity of polynomial roots: Wilkinson polynomial](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/wilkinson_poly.ipynb)
+* [Stability of least squares algorithms](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/least_squares_stability.ipynb)
 * [Triangular systems](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/tri_sys.ipynb)
 * [Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
 * [Cholesky decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
