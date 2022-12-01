@@ -45,6 +45,7 @@ or the individual files
 * [Triangular systems](https://nbviewer.org/github/cpraveen/nla/blob/master/src/tri_sys.ipynb)
 * [Stability of least squares algorithms](https://nbviewer.org/github/cpraveen/nla/blob/master/src/least_squares_stability.ipynb)
 * [Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
+* [Stability of Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 
 
@@ -66,15 +67,20 @@ The following links open individual files in colab.
 * [Triangular systems](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/tri_sys.ipynb)
 * [Stability of least squares algorithms](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/least_squares_stability.ipynb)
 * [Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
+* [Stability of Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 
 ## More code examples
 
 http://www.github.com/cpraveen/na
 
-## References
+## Textbook
 
 * L. N. Trefethen and Bau, Numerical Linear Algebra, SIAM.
+
+## References
+
 * S. L. Brunton and J. N. Katz, Data Driven Science and Engineering: Machine Learning, Dynamical Systems and Control, Cambridge Univ. Press.
+* James Demmel, Applied Numerical Linear Algebra, SIAM.
 * E. Darve and M. Wootters, Numerical Linear Algebra with Julia, SIAM.
 * G. H. Golub and C. F. Van Loan, Matrix Computations, Hindustan Book Agency.
