@@ -47,6 +47,7 @@ or the individual files
 * [Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
 * [Stability of Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
+* [Reduction to Hessenberg form](https://nbviewer.org/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
 
 
 ## Open in colab
@@ -69,6 +70,7 @@ The following links open individual files in colab.
 * [Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
 * [Stability of Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
+* [Reduction to Hessenberg form](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
 
 ## More code examples
 
