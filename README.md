@@ -48,6 +48,7 @@ or the individual files
 * [Stability of Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 * [Reduction to Hessenberg form](https://nbviewer.org/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
+* [Power and inverse iteration](https://nbviewer.org/github/cpraveen/nla/blob/master/src/power.ipynb)
 
 
 ## Open in colab
@@ -71,6 +72,7 @@ The following links open individual files in colab.
 * [Stability of Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 * [Reduction to Hessenberg form](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
+* [Power and inverse iterations](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/power.ipynb)
 
 ## More code examples
 
@@ -78,7 +80,7 @@ http://www.github.com/cpraveen/na
 
 ## Textbook
 
-* L. N. Trefethen and Bau, Numerical Linear Algebra, SIAM.
+* L. N. Trefethen and D. Bau, Numerical Linear Algebra, SIAM.
 
 ## References
 
