@@ -33,6 +33,7 @@ Open the `src` directory: https://nbviewer.org/github/cpraveen/nla/tree/master/s
 
 or the individual files
 
+* [Singular value decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/svd.ipynb)
 * Applications of SVD
   * [Image compression using SVD](https://nbviewer.org/github/cpraveen/nla/blob/master/src/dog.ipynb)
   * [Ovarian cancer data](https://nbviewer.org/github/cpraveen/nla/blob/master/src/ovarian_cancer.ipynb)
@@ -57,6 +58,7 @@ Open the repository in colab [![Open In Colab](https://colab.research.google.com
 
 The following links open individual files in colab.
 
+* [Singular value decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/svd.ipynb)
 * Applications of SVD
   * [Image compression using SVD](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/dog.ipynb)
   * [Ovarian cancer data](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/ovarian_cancer.ipynb)
