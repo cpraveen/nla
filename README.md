@@ -2,9 +2,8 @@
 
 Codes developed for a course on numerical Linear Algebra.
 
-Original repo: https://www.bitbucket.org/cpraveen/nla
-
-Mirrored at: https://www.github.com/cpraveen/nla
+`Original:` https://www.bitbucket.org/cpraveen/nla <br/>
+`Mirrored:` https://www.github.com/cpraveen/nla
 
 ## Python tutorial
 
