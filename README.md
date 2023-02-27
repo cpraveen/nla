@@ -1,6 +1,8 @@
 # Numerical Linear Algebra
 
-Codes developed for a course on numerical Linear Algebra.
+Codes developed for a course on numerical linear algebra based on the book 
+
+L. N. Trefethen and D. Bau: Numerical Linear Algebra, SIAM
 
 `Original:` https://www.bitbucket.org/cpraveen/nla <br/>
 `Mirrored:` https://www.github.com/cpraveen/nla
@@ -45,8 +47,8 @@ or the individual files
 * [Triangular systems](https://nbviewer.org/github/cpraveen/nla/blob/master/src/tri_sys.ipynb)
 * [Stability of least squares algorithms](https://nbviewer.org/github/cpraveen/nla/blob/master/src/least_squares_stability.ipynb)
 * [Gaussian elimination (Lecture 20,21)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
-* [Stability of Gaussian elimination](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
-* [Cholesky decomposition](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
+* [Stability of Gaussian elimination (Lecture 22)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
+* [Cholesky decomposition (Lecture 23)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 * [Reduction to Hessenberg form](https://nbviewer.org/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
 * [Power and inverse iteration](https://nbviewer.org/github/cpraveen/nla/blob/master/src/power.ipynb)
 
@@ -70,18 +72,14 @@ The following links open individual files in colab.
 * [Triangular systems](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/tri_sys.ipynb)
 * [Stability of least squares algorithms](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/least_squares_stability.ipynb)
 * [Gaussian elimination (Lecture 20,21)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
-* [Stability of Gaussian elimination](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
-* [Cholesky decomposition](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
+* [Stability of Gaussian elimination (Lecture 22)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
+* [Cholesky decomposition (Lecture 23)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
 * [Reduction to Hessenberg form](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
 * [Power and inverse iterations](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/power.ipynb)
 
 ## More code examples
 
 http://www.github.com/cpraveen/na
-
-## Textbook
-
-* L. N. Trefethen and D. Bau, Numerical Linear Algebra, SIAM.
 
 ## References
 
