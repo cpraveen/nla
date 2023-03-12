@@ -49,8 +49,9 @@ or the individual files
 * [Gaussian elimination (Lecture 20,21)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
 * [Stability of Gaussian elimination (Lecture 22)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition (Lecture 23)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
-* [Reduction to Hessenberg form](https://nbviewer.org/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
-* [Power and inverse iteration](https://nbviewer.org/github/cpraveen/nla/blob/master/src/power.ipynb)
+* [Reduction to Hessenberg form (Lecture 26)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
+* [Power and inverse iteration (Lecture 27)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/power.ipynb)
+* [QR algorithm for eigenvalues (Lecture 28)](https://nbviewer.org/github/cpraveen/nla/blob/master/src/qr_eig.ipynb)
 
 
 ## Open in colab
@@ -74,8 +75,9 @@ The following links open individual files in colab.
 * [Gaussian elimination (Lecture 20,21)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim.ipynb)
 * [Stability of Gaussian elimination (Lecture 22)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/gauss_elim_stab.ipynb)
 * [Cholesky decomposition (Lecture 23)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/cholesky.ipynb)
-* [Reduction to Hessenberg form](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
-* [Power and inverse iterations](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/power.ipynb)
+* [Reduction to Hessenberg form (Lecture 26)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/hessenberg.ipynb)
+* [Power and inverse iterations (Lecture 27)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/power.ipynb)
+* [QR algorihtm for eigenvalues (Lecture 28)](http://colab.research.google.com/github/cpraveen/nla/blob/master/src/qr_eig.ipynb)
 
 ## More code examples
 
