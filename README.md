@@ -7,6 +7,8 @@ L. N. Trefethen and D. Bau: Numerical Linear Algebra, SIAM
 `Original:` https://www.bitbucket.org/cpraveen/nla <br/>
 `Mirrored:` https://www.github.com/cpraveen/nla
 
+**WARNING**: These codes are used to illustrate the algorithms in the book. They are not written to be efficient implementations of those algorithms.
+
 ## Python tutorial
 
 The codes are written in Python and as Jupyter notebooks. A short Python tutorial is available [here](http://www.github.com/cpraveen/python).
