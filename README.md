@@ -83,7 +83,9 @@ The following links open individual files in colab.
 
 ## More code examples
 
-http://www.github.com/cpraveen/na
+* https://github.com/cpraveen/na/tree/master/la
+* https://github.com/cpraveen/numpde/tree/master/bvp1d
+* https://github.com/cpraveen/numpde/tree/master/bvp2d
 
 ## References
 
