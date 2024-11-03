@@ -93,3 +93,9 @@ The following links open individual files in colab.
 * James Demmel, Applied Numerical Linear Algebra, SIAM.
 * E. Darve and M. Wootters, Numerical Linear Algebra with Julia, SIAM.
 * G. H. Golub and C. F. Van Loan, Matrix Computations, Hindustan Book Agency.
+
+## More resources from the internet
+
+* [Colin Cotter: Computational Linear Algebra](https://comp-lin-alg.github.io)
+* [Darve & Wooters: Numerical Linear Algebra in Julia](https://github.com/EricDarve/numerical_linear_algebra)
+* [Steven M. Wise: Multigrid](https://github.com/stevenmwise/MultigridCourse)
