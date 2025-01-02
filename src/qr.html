@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'src/qr';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Interpolation and fitting by polynomial" href="least_squares.html" />
+    <link rel="next" title="Least squares" href="least_squares.html" />
     <link rel="prev" title="Eigenfaces" href="eigenfaces.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,7 +178,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">QR factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Interpolation and fitting by polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Least squares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wilkinson_poly.html">Wilkinson’s polynomial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floating_point.html">Floating point system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="house_stability.html">Stability of Householder triangularization</a></li>
@@ -457,7 +457,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6653345369377348e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.1102230246251565e-16)
 </pre></div>
 </div>
 </div>
@@ -512,7 +512,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6653345369377348e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.1449174941446927e-16)
 </pre></div>
 </div>
 </div>
@@ -555,7 +555,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ff5888525d74d2b78794f7229b02592fd3bc0c92f0fa09dd66028ba57e8453ee.svg" src="../_images/ff5888525d74d2b78794f7229b02592fd3bc0c92f0fa09dd66028ba57e8453ee.svg" />
+<img alt="../_images/e80eb11d21d647e30dd0096eccd3bff407df995c77a962e51b41c4cb776946e3.svg" src="../_images/e80eb11d21d647e30dd0096eccd3bff407df995c77a962e51b41c4cb776946e3.svg" />
 </div>
 </div>
 </section>
@@ -601,7 +601,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/efeee60adf14cdfcf45abec4aad6e58d3e204a22c83bfa84689a34b784c156a8.svg" src="../_images/efeee60adf14cdfcf45abec4aad6e58d3e204a22c83bfa84689a34b784c156a8.svg" />
+<img alt="../_images/f0bc8602813108707e272d9d3d7a7163de07179d8b7fd0943c138b385ad65191.svg" src="../_images/f0bc8602813108707e272d9d3d7a7163de07179d8b7fd0943c138b385ad65191.svg" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(r_{jj}\)</span> decrease with <span class="math notranslate nohighlight">\(j\)</span>, closely following the line <span class="math notranslate nohighlight">\(2^{-j}\)</span>.  It is not exactly equal to the <span class="math notranslate nohighlight">\(j\)</span>’th singular value of <span class="math notranslate nohighlight">\(A\)</span>, but is a reasonably good approximation. This can be seen as follows. The SVD of <span class="math notranslate nohighlight">\(A\)</span> can be written as</p>
@@ -703,7 +703,7 @@ Classical GS QR =  2.301438892308072e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2212453270876722e-15)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.3322676295501878e-15)
 </pre></div>
 </div>
 </div>
@@ -716,7 +716,7 @@ Classical GS QR =  2.301438892308072e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.771561172376096e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.440892098500626e-16)
 </pre></div>
 </div>
 </div>
@@ -790,7 +790,7 @@ Modified GS QR =  2.301438892308072e-11
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Interpolation and fitting by polynomial</p>
+        <p class="prev-next-title">Least squares</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

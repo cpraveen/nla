@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -513,7 +513,7 @@ x_i = \frac{1}{U_{ii}}\left[y_i - \sum_{j=i+1}^{m-1} U_{ij} x_j \right], \qquad 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>||Ax-b|| =  1.3322676295501878e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>||Ax-b|| =  2.886579864025407e-15
 </pre></div>
 </div>
 </div>
@@ -651,23 +651,23 @@ P A = L U
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =
- [[0.25976086 0.94046657 0.17653079]
- [0.98008552 0.96348092 0.3445962 ]
- [0.16278917 0.37905188 0.88722586]]
+ [[0.73810116 0.38578014 0.36380608]
+ [0.99254898 0.54212937 0.68704177]
+ [0.30633132 0.24626371 0.52501995]]
 L =
- [[1.         0.         0.        ]
- [0.26503898 1.         0.        ]
- [0.16609691 0.31968847 1.        ]]
+ [[ 1.          0.          0.        ]
+ [ 0.30863093  1.          0.        ]
+ [ 0.74364206 -0.22002513  1.        ]]
 U =
- [[0.98008552 0.96348092 0.3445962 ]
- [0.         0.68510658 0.08519936]
- [0.         0.         0.80275224]]
+ [[ 0.99254898  0.54212937  0.68704177]
+ [ 0.          0.07894582  0.31297761]
+ [ 0.          0.         -0.07824413]]
 P =
- [1 0 2]
+ [1 2 0]
 PA-LU =
- [[ 0.00000000e+00  0.00000000e+00  0.00000000e+00]
- [ 0.00000000e+00  1.11022302e-16  0.00000000e+00]
- [ 0.00000000e+00  0.00000000e+00 -1.11022302e-16]]
+ [[-0.68621766 -0.29586566 -0.16202182]
+ [ 0.43176985  0.13951643 -0.16121387]
+ [ 0.25444782  0.15634923  0.32323569]]
 </pre></div>
 </div>
 </div>
@@ -740,7 +740,7 @@ Ax-b =  [0. 0.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>||Ax-b|| =  1.1102230246251565e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>||Ax-b|| =  3.885780586188048e-15
 </pre></div>
 </div>
 </div>
@@ -753,7 +753,7 @@ Ax-b =  [0. 0.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P =  [2 3 6 5 9 0 4 1 7 8]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P =  [4 9 0 1 7 8 3 2 5 6]
 </pre></div>
 </div>
 </div>

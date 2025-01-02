@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -178,7 +178,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="qr.html">QR factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Interpolation and fitting by polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Least squares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wilkinson_poly.html">Wilkinson’s polynomial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floating_point.html">Floating point system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="house_stability.html">Stability of Householder triangularization</a></li>
@@ -452,13 +452,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 8.97e-02 -8.21e-01  1.24e+00  1.31e-01  1.88e-01  2.37e-02  1.19e-02]
- [-1.46e+00  2.24e+00 -1.06e+00  2.69e-01 -9.77e-02  2.11e-01  1.35e-01]
- [ 1.11e-16 -1.52e+00  5.11e-01 -1.12e-01 -1.93e-01  2.13e-01  2.66e-01]
- [ 2.22e-16  3.33e-16 -3.86e-01 -1.03e-01  5.38e-01 -4.07e-01 -4.71e-02]
- [ 1.11e-16  1.11e-16 -2.78e-17  5.49e-01  1.44e-01  4.53e-01 -3.75e-03]
- [ 1.11e-16 -2.22e-16  2.78e-17  1.11e-16 -3.47e-01 -7.64e-02  1.04e+00]
- [ 1.39e-17 -4.44e-16  1.39e-17  6.94e-18  3.47e-18  1.98e-02 -4.36e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.13e-01 -1.46e+00 -5.74e-01  6.57e-02  3.78e-01  8.74e-02  2.23e-02]
+ [-1.50e+00  2.95e+00  7.12e-01 -1.00e-01  5.56e-01 -8.69e-01 -1.61e-01]
+ [ 5.55e-17  9.99e-01 -1.33e-01  2.49e-02  2.78e-01  1.75e-01  3.61e-01]
+ [ 0.00e+00  5.55e-17  3.43e-01 -1.75e-01 -3.77e-01 -4.48e-02  5.10e-01]
+ [ 0.00e+00 -2.78e-17 -1.39e-17 -4.72e-01 -8.37e-02 -4.84e-01  1.26e-01]
+ [ 0.00e+00 -1.11e-16 -5.55e-17  1.39e-17  8.46e-01 -2.00e-01 -1.31e-01]
+ [ 0.00e+00 -2.22e-16  1.39e-17 -1.11e-16  0.00e+00 -1.37e-01  4.40e-01]]
 </pre></div>
 </div>
 </div>
@@ -474,11 +474,11 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
  [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 1.11e-16  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 2.22e-16  3.33e-16  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 1.11e-16  1.11e-16 -2.78e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 1.11e-16 -2.22e-16  2.78e-17  1.11e-16  0.00e+00  0.00e+00  0.00e+00]
- [ 1.39e-17 -4.44e-16  1.39e-17  6.94e-18  3.47e-18  0.00e+00  0.00e+00]]
+ [ 5.55e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00  5.55e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00 -2.78e-17 -1.39e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00 -1.11e-16 -5.55e-17  1.39e-17  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00 -2.22e-16  1.39e-17 -1.11e-16  0.00e+00  0.00e+00  0.00e+00]]
 </pre></div>
 </div>
 </div>
@@ -491,7 +491,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.440892098500626e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.220446049250313e-16
 </pre></div>
 </div>
 </div>
@@ -508,7 +508,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.6645352591003757e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.661338147750939e-16
 </pre></div>
 </div>
 </div>
@@ -527,13 +527,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.17 -1.57  0.    0.    0.    0.    0.  ]
- [-1.57  2.79  0.94  0.    0.   -0.   -0.  ]
- [ 0.    0.94  0.5   0.46 -0.   -0.    0.  ]
- [ 0.    0.    0.46  0.33  0.41 -0.    0.  ]
- [ 0.    0.   -0.    0.41 -0.79 -0.35 -0.  ]
- [ 0.   -0.    0.    0.   -0.35 -0.19 -0.05]
- [ 0.    0.   -0.    0.   -0.   -0.05  0.12]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.05 -1.15 -0.   -0.   -0.    0.   -0.  ]
+ [-1.15  2.32  1.72  0.   -0.    0.   -0.  ]
+ [ 0.    1.72  0.42 -0.33  0.   -0.    0.  ]
+ [ 0.    0.   -0.33  0.21 -0.39 -0.    0.  ]
+ [ 0.    0.    0.   -0.39 -0.16  0.27 -0.  ]
+ [ 0.   -0.    0.   -0.    0.27 -0.21  0.29]
+ [ 0.    0.    0.   -0.    0.    0.29  0.41]]
 </pre></div>
 </div>
 </div>

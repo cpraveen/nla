@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -407,7 +407,8 @@ A = U \Sigma V^\star
 <p>We use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html">numpy.linalg.svd</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html">scipy.linalg.svd</a> to compute this. Below we use numpy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
@@ -446,13 +447,13 @@ v_j &amp;= \textrm{Vh[j,:]}, &amp; 0 \le j &lt; n \\
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>U = 
- [[-0.94612265  0.27211602]
- [ 0.14694859 -0.12217874]
- [ 0.28854471  0.95447642]]
-sigma =  1.1329960353656408 0.826629679863201
+ [[-0.29309186  0.40698217]
+ [-0.35408057 -0.88673896]
+ [ 0.88810141 -0.21922483]]
+sigma =  1.0364058823388043 0.8196285980231213
 V = 
- [[ 0.86341904  0.50448742]
- [-0.50448742  0.86341904]]
+ [[ 0.9020895  -0.43154899]
+ [ 0.43154899  0.9020895 ]]
 </pre></div>
 </div>
 </div>
@@ -495,13 +496,13 @@ v_j &amp;= \textrm{Vh[j,:]}, &amp; 0 \le j &lt; n \\
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>U = 
- [[-0.94612265  0.27211602  0.175513  ]
- [ 0.14694859 -0.12217874  0.98156939]
- [ 0.28854471  0.95447642  0.07560901]]
-sigma =  1.1329960353656408 0.826629679863201
+ [[-0.29309186  0.40698217  0.86513737]
+ [-0.35408057 -0.88673896  0.29718843]
+ [ 0.88810141 -0.21922483  0.40400045]]
+sigma =  1.0364058823388043 0.8196285980231213
 V = 
- [[ 0.86341904  0.50448742]
- [-0.50448742  0.86341904]]
+ [[ 0.9020895  -0.43154899]
+ [ 0.43154899  0.9020895 ]]
 </pre></div>
 </div>
 </div>
@@ -531,15 +532,15 @@ V =
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>U = 
- [[-0.54586568  0.47497336  0.6838926 ]
- [ 0.4327046  -0.50822228  0.64832489]
- [-0.67362348 -0.71816765 -0.01514538]
- [-0.24704007  0.01859138 -0.3342699 ]]
-sigma =  1.4715636196269726 0.47766974412539687 2.0085125558326678e-17
+ [[-0.74395118  0.19323875 -0.34077999]
+ [-0.43966288 -0.74274692  0.50454201]
+ [ 0.22112072 -0.63412376 -0.73802699]
+ [ 0.45203851 -0.09419585  0.29089949]]
+sigma =  1.5307597620766928 0.9965249827049049 9.080595942642002e-17
 V = 
- [[-0.59558465 -0.5585209  -0.57735027]
- [-0.18590096  0.79505189 -0.57735027]
- [-0.78148561  0.23653099  0.57735027]]
+ [[-0.23247857  0.7827007   0.57735027]
+ [-0.5615994  -0.5926827   0.57735027]
+ [-0.79407797  0.190018   -0.57735027]]
 </pre></div>
 </div>
 </div>
@@ -567,7 +568,7 @@ V =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a866804b55bf49389280c2c1d9700ec6fa9b36097702ac2edb47ef8a607d5cb1.png" src="../_images/a866804b55bf49389280c2c1d9700ec6fa9b36097702ac2edb47ef8a607d5cb1.png" />
+<img alt="../_images/2cda7f0744e45fcbf28487a71ec746532cec7c5ab62fd73b84a775589edb89da.svg" src="../_images/2cda7f0744e45fcbf28487a71ec746532cec7c5ab62fd73b84a775589edb89da.svg" />
 </div>
 </div>
 <p>All singular values are of very similar size.</p>

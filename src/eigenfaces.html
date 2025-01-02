@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -178,7 +178,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="qr.html">QR factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Interpolation and fitting by polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Least squares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wilkinson_poly.html">Wilkinson’s polynomial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floating_point.html">Floating point system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="house_stability.html">Stability of Householder triangularization</a></li>
@@ -428,13 +428,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/bf/9z7c3wfn7033kh93rp599rg00000gn/T/ipykernel_3631/3092031090.py:3: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/bf/9z7c3wfn7033kh93rp599rg00000gn/T/ipykernel_4137/3092031090.py:3: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   m = int(mat_contents[&#39;m&#39;]) # pixels per image
-/var/folders/bf/9z7c3wfn7033kh93rp599rg00000gn/T/ipykernel_3631/3092031090.py:4: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+/var/folders/bf/9z7c3wfn7033kh93rp599rg00000gn/T/ipykernel_4137/3092031090.py:4: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   n = int(mat_contents[&#39;n&#39;]) # pixels per image
 </pre></div>
 </div>
-<img alt="../_images/91c4486b565e22618f8f674ca32c7cc9c8d6472c16608f0d76222be22a17fdce.svg" src="../_images/91c4486b565e22618f8f674ca32c7cc9c8d6472c16608f0d76222be22a17fdce.svg" />
+<img alt="../_images/e69d1cbb78103026cf0ac427736fdfc61f35569db38bcac62b3ef09f7a9c840d.svg" src="../_images/e69d1cbb78103026cf0ac427736fdfc61f35569db38bcac62b3ef09f7a9c840d.svg" />
 </div>
 </div>
 <p>and plot the first 36 of them.</p>
@@ -457,7 +457,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aea7ab30559e5b33007b41c414de98e5300300d31528ece8b652836459103c16.svg" src="../_images/aea7ab30559e5b33007b41c414de98e5300300d31528ece8b652836459103c16.svg" />
+<img alt="../_images/a64ae57ed41df47702e6bd1f981bfe806ca8b5da16323403ef31c1c6a556e41b.svg" src="../_images/a64ae57ed41df47702e6bd1f981bfe806ca8b5da16323403ef31c1c6a556e41b.svg" />
 </div>
 </div>
 <p>Let us use the first 36 people as the data. We compute the average image and subtract it from all images. The images are then stacked as columns of a matrix <span class="math notranslate nohighlight">\(X\)</span> of size <span class="math notranslate nohighlight">\(m \times n = 32256 \times 2282\)</span>.</p>
@@ -542,7 +542,7 @@ v_1 &amp; v_2 &amp; \ldots &amp; v_n \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/da2e695f27adc9a0c82de1053888ee8b55d05503fed4a7fda37cde778768d2c2.svg" src="../_images/da2e695f27adc9a0c82de1053888ee8b55d05503fed4a7fda37cde778768d2c2.svg" />
+<img alt="../_images/28716ed8d0b5e7be1e8dc2f12339657a9a40e30c341f3b31fcd38c97672b81e2.svg" src="../_images/28716ed8d0b5e7be1e8dc2f12339657a9a40e30c341f3b31fcd38c97672b81e2.svg" />
 </div>
 </div>
 <p>The singular values decrease very rapidly.</p>
@@ -566,7 +566,7 @@ v_1 &amp; v_2 &amp; \ldots &amp; v_n \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b147e3ca179f71017932abc7b14f38895d9b91d7211baf57c7a894ca7368c5a6.svg" src="../_images/b147e3ca179f71017932abc7b14f38895d9b91d7211baf57c7a894ca7368c5a6.svg" />
+<img alt="../_images/e721eefefd56f02194c9ca0c25eaa2eb034d6bad2b09bff3002c1da9cc1a6d4c.svg" src="../_images/e721eefefd56f02194c9ca0c25eaa2eb034d6bad2b09bff3002c1da9cc1a6d4c.svg" />
 </div>
 </div>
 <p>The principal components of the <span class="math notranslate nohighlight">\(j\)</span>’th image are</p>
@@ -616,7 +616,7 @@ u_1 &amp; u_2 &amp; \ldots &amp; u_r \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c0267bc263874bd93f0890922dc594047cae09d3a7d85d9bfdee81d2a505a21e.svg" src="../_images/c0267bc263874bd93f0890922dc594047cae09d3a7d85d9bfdee81d2a505a21e.svg" />
+<img alt="../_images/322102e496a3d436669654bb27641b81eca016cab2cf07dc3b513973368a1cdc.svg" src="../_images/322102e496a3d436669654bb27641b81eca016cab2cf07dc3b513973368a1cdc.svg" />
 </div>
 </div>
 <p>The first 1600 principal components give a good approximation of the true image. This can provide a method for image compression, we only need to store a few principal components for each image. The average image and the basis must also be stored, but these are common to all images.</p>
@@ -647,7 +647,7 @@ u_1 &amp; u_2 &amp; \ldots &amp; u_r \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4e748276ce00018d12f8f9e50f5919b768efb1e86134835aff10a432e81ad538.svg" src="../_images/4e748276ce00018d12f8f9e50f5919b768efb1e86134835aff10a432e81ad538.svg" />
+<img alt="../_images/272a6b920d32d48934fb25f1ca1a1d93a212ea23aa06d3bd5a64e575ed4dc805.svg" src="../_images/272a6b920d32d48934fb25f1ca1a1d93a212ea23aa06d3bd5a64e575ed4dc805.svg" />
 </div>
 </div>
 <p>The two persons seem to be well separated in PC space. This suggests that we can use the principal components for image recognition.</p>

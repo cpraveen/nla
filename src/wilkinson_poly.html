@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Floating point system" href="floating_point.html" />
-    <link rel="prev" title="Interpolation and fitting by polynomial" href="least_squares.html" />
+    <link rel="prev" title="Least squares" href="least_squares.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -178,7 +178,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="qr.html">QR factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Interpolation and fitting by polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Least squares</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Wilkinson’s polynomial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floating_point.html">Floating point system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="house_stability.html">Stability of Householder triangularization</a></li>
@@ -473,7 +473,7 @@ p(x) = c[0] x^{20} + c[1] x^{19} + \ldots + c[19] x + c[20]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8a6a9445b41d4218f3a42751ad21c641f2e978c92f501ace880d845cf2b0d257.svg" src="../_images/8a6a9445b41d4218f3a42751ad21c641f2e978c92f501ace880d845cf2b0d257.svg" />
+<img alt="../_images/3a21f939164cc438d94338e742da26dac11066a17e0399be4362fbb8bf5e2189.svg" src="../_images/3a21f939164cc438d94338e742da26dac11066a17e0399be4362fbb8bf5e2189.svg" />
 </div>
 </div>
 <p>Computing the polynomial as a monomial is subject to lot of rounding errors since the coefficients are very large.</p>
@@ -514,7 +514,7 @@ c_0(1 + \epsilon r_0) x^{20} + c_1 (1+ \epsilon r_1) x^{19} + \ldots + c_{20}(1+
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cccf61d560d4c3b06fb7cfec75e9b96c865a52c7c96941ef7ca6c71753644fd4.svg" src="../_images/cccf61d560d4c3b06fb7cfec75e9b96c865a52c7c96941ef7ca6c71753644fd4.svg" />
+<img alt="../_images/8571fab562f9656e52f0fe53721e5dc7e15011d1078fcddc57c7c5edbaac083f.svg" src="../_images/8571fab562f9656e52f0fe53721e5dc7e15011d1078fcddc57c7c5edbaac083f.svg" />
 </div>
 </div>
 <p>The relative perturbation in coefficients is <span class="math notranslate nohighlight">\(O(10^{-10})\)</span> while the change in roots is <span class="math notranslate nohighlight">\(O(1)\)</span>, which indicates a very high sensitivity wrt the coefficients.</p>
@@ -556,7 +556,7 @@ c_0(1 + \epsilon r_0) x^{20} + c_1 (1+ \epsilon r_1) x^{19} + \ldots + c_{20}(1+
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Interpolation and fitting by polynomial</p>
+        <p class="prev-next-title">Least squares</p>
       </div>
     </a>
     <a class="right-next"
