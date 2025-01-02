@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>QR factorization &#8212; Numerical Linear Algebra</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/qr';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interpolation and fitting by polynomial" href="least_squares.html" />
+    <link rel="prev" title="Eigenfaces" href="eigenfaces.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Numerical Linear Algebra - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Numerical Linear Algebra - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Numerical Linear Algebra
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="svd.html">Singular value decomposition</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dog.html">Image compression using SVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ovarian_cancer.html">Ovarian cancer data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenfaces.html">Eigenfaces</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">QR factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least_squares.html">Interpolation and fitting by polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wilkinson_poly.html">Wilkinson’s polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating_point.html">Floating point system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="house_stability.html">Stability of Householder triangularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tri_sys.html">Triangular systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least_squares_stability.html">Stability of least squares algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gauss_elim.html">Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gauss_elim_stab.html">Stability of Gaussian elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cholesky.html">Cholesky factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hessenberg.html">Reduction to Hessenberg form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="power.html">Power and inverse iterations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qr_eig.html">QR algorithm for eigenvalues</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cpraveen/nla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cpraveen/nla/issues/new?title=Issue%20on%20page%20%2Fsrc/qr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/src/qr.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>QR factorization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-gram-schmidt-algorithm">Classical Gram-Schmidt algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-gram-schmidt">Modified Gram-Schmidt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-1-discrete-legendre-polynomials">Experiment 1: Discrete Legendre polynomials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-2-classical-vs-modified-gram-schmidt">Experiment 2: Classical vs modified Gram-Schmidt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-numerical-loss-of-orthogonality">Experiment 3: numerical loss of orthogonality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#householder-triangularization">Householder triangularization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Experiment 3: numerical loss of orthogonality</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\newcommand{\re}{\mathbb{R}}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="qr-factorization">
+<h1>QR factorization<a class="headerlink" href="#qr-factorization" title="Link to this heading">#</a></h1>
+<p>Given <span class="math notranslate nohighlight">\(A \in \re^{m \times n}\)</span> with <span class="math notranslate nohighlight">\(m \ge n\)</span> and <span class="math notranslate nohighlight">\(rank(A)=n\)</span>, we want to write it as</p>
+<div class="math notranslate nohighlight">
+\[
+A = Q R
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\)</span> has orthonormal columns, <span class="math notranslate nohighlight">\(Q^\top Q = I_{n \times n}\)</span> and <span class="math notranslate nohighlight">\(R\)</span> is upper triangular matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="classical-gram-schmidt-algorithm">
+<h2>Classical Gram-Schmidt algorithm<a class="headerlink" href="#classical-gram-schmidt-algorithm" title="Link to this heading">#</a></h2>
+<p>We now implement the Gram-Schmidt algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+            <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">Q</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">/</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generate a random matrix and compute the decomposition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Test that <span class="math notranslate nohighlight">\(A = Q R\)</span> is satisfied, compute <span class="math notranslate nohighlight">\(\max_{i,j}| (A - Q R)_{ij} |\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">Q</span> <span class="o">@</span> <span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6653345369377348e-16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Are the columns of <span class="math notranslate nohighlight">\(Q\)</span> orthonormal, i.e., <span class="math notranslate nohighlight">\(Q^\top Q = I_{n\times n}\)</span> ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.220446049250313e-16)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modified-gram-schmidt">
+<h2>Modified Gram-Schmidt<a class="headerlink" href="#modified-gram-schmidt" title="Link to this heading">#</a></h2>
+<p>We now implement the modified Gram-Schmidt algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mgs</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># A is not changed</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us test it following similar approach as above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">mgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Test that <span class="math notranslate nohighlight">\(A = Q R\)</span> is satisfied,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">Q</span> <span class="o">@</span> <span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6653345369377348e-16)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Are the columns of <span class="math notranslate nohighlight">\(Q\)</span> orthonormal, i.e., <span class="math notranslate nohighlight">\(Q^\top Q = I_{n\times n}\)</span> ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.220446049250313e-16)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Remark</strong>: We allocated memory for a matrix <span class="math notranslate nohighlight">\(V\)</span> which is not necessary. We can use a common array for both <span class="math notranslate nohighlight">\(V,Q\)</span></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">Q</span>                             <span class="c1"># V is pointer to Q</span>
+</pre></div>
+</div>
+<p>If we are ok to modify matrix <span class="math notranslate nohighlight">\(A\)</span> then we can use <span class="math notranslate nohighlight">\(A\)</span> to store <span class="math notranslate nohighlight">\(V,Q\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>        <span class="c1"># Q is pointer to A</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">Q</span>                            <span class="c1"># V is pointer to A</span>
+</pre></div>
+</div>
+</section>
+<section id="experiment-1-discrete-legendre-polynomials">
+<h2>Experiment 1: Discrete Legendre polynomials<a class="headerlink" href="#experiment-1-discrete-legendre-polynomials" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="mi">129</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;reduced&#39;</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">scale</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ff5888525d74d2b78794f7229b02592fd3bc0c92f0fa09dd66028ba57e8453ee.svg" src="../_images/ff5888525d74d2b78794f7229b02592fd3bc0c92f0fa09dd66028ba57e8453ee.svg" />
+</div>
+</div>
+</section>
+<section id="experiment-2-classical-vs-modified-gram-schmidt">
+<h2>Experiment 2: Classical vs modified Gram-Schmidt<a class="headerlink" href="#experiment-2-classical-vs-modified-gram-schmidt" title="Link to this heading">#</a></h2>
+<p>First we construct a square matrix <span class="math notranslate nohighlight">\(A\)</span> with random singular vectors and widely varying sngular values spaced by factors of 2 between <span class="math notranslate nohighlight">\(2^{-1}\)</span> and <span class="math notranslate nohighlight">\(2^{-80}\)</span>.</p>
+<p>Generate random unitary matrices <span class="math notranslate nohighlight">\(U,V\)</span> using QR factorization,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span>
+<span class="n">V</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">81</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">S</span> <span class="o">@</span> <span class="n">V</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we use Algorithms 7.1 and 8.1 to compute the QR factorization</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qc</span><span class="p">,</span> <span class="n">Rc</span> <span class="o">=</span> <span class="n">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Qm</span><span class="p">,</span> <span class="n">Rm</span> <span class="o">=</span> <span class="n">mgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We plot the diagonal elements <span class="math notranslate nohighlight">\(r_{jj}\)</span> produced by the two Algorithms. Since <span class="math notranslate nohighlight">\(r_{jj} = \| P_j a_j \|\)</span>, this gives the size of the projection at each step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Rc</span><span class="p">),</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Classical GS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Rm</span><span class="p">),</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modified GS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">81</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$2^{-j}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">],</span><span class="mi">2</span><span class="o">*</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eps</span><span class="p">)],</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">],</span><span class="mi">2</span><span class="o">*</span><span class="p">[</span><span class="n">eps</span><span class="p">],</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">82</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eps</span><span class="p">),</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">sqrt{</span><span class="se">\\</span><span class="s2">varepsilon_</span><span class="si">{mach}</span><span class="s2">}$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">82</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">eps</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">varepsilon_</span><span class="si">{mach}</span><span class="s2">$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;j&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$r_</span><span class="si">{jj}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diagonal entries of R&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/efeee60adf14cdfcf45abec4aad6e58d3e204a22c83bfa84689a34b784c156a8.svg" src="../_images/efeee60adf14cdfcf45abec4aad6e58d3e204a22c83bfa84689a34b784c156a8.svg" />
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(r_{jj}\)</span> decrease with <span class="math notranslate nohighlight">\(j\)</span>, closely following the line <span class="math notranslate nohighlight">\(2^{-j}\)</span>.  It is not exactly equal to the <span class="math notranslate nohighlight">\(j\)</span>’th singular value of <span class="math notranslate nohighlight">\(A\)</span>, but is a reasonably good approximation. This can be seen as follows. The SVD of <span class="math notranslate nohighlight">\(A\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+A = 2^{-1} u_1 v_1^* + 2^{-2} u_2 v_2^* + \ldots + 2^{-80} u_{80} v_{80}^*
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(u_j\)</span> and <span class="math notranslate nohighlight">\(v_j\)</span> are the left and right singular vectors of <span class="math notranslate nohighlight">\(A\)</span>, respectively. The <span class="math notranslate nohighlight">\(j\)</span>’th column of <span class="math notranslate nohighlight">\(A\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+a_j = 2^{-1} \bar{v}_{j1} u_1 + 2^{-2} \bar{v}_{j2} u_2 + \ldots + 2^{-80} \bar{v}_{j,80} u_{80}
+\]</div>
+<p>Since the singular vectors are random, we can expect the numbers <span class="math notranslate nohighlight">\(\bar{v}_{ji}\)</span> are all of similar magnitude, on the order of <span class="math notranslate nohighlight">\(80^{-1/2} \approx 0.1\)</span>.</p>
+<p>When we take the QR factorization, the first vector <span class="math notranslate nohighlight">\(q_1\)</span> is likely to be approximately equal to <span class="math notranslate nohighlight">\(u_1\)</span>, with <span class="math notranslate nohighlight">\(r_{11}\)</span> of the order of <span class="math notranslate nohighlight">\(2^{-1} \times 80^{-1/2}\)</span>. Orthogonalization at the next step will yield a second vector <span class="math notranslate nohighlight">\(q_2\)</span> approximately equal to <span class="math notranslate nohighlight">\(u_2\)</span>, with <span class="math notranslate nohighlight">\(r_{22}\)</span> on the order of <span class="math notranslate nohighlight">\(2^{-2} \times 80^{-1/2}\)</span> – and so on.</p>
+<p>In the computation, the decrease of <span class="math notranslate nohighlight">\(r_{jj}\)</span> does not continue all the way to <span class="math notranslate nohighlight">\(j=80\)</span>. This is a consequence of rounding errors on the computer. With the classical Gram-Schmidt algorithm, the numbers never become smaller than about <span class="math notranslate nohighlight">\(10^{-8}\)</span>. With the modified Gram-Schmidt algorithm, they shrink eight orders of magnitude further, down to about <span class="math notranslate nohighlight">\(10^{-16}\)</span>, which the machine precision.</p>
+<p>Classical Gram-Schmidt is known to be unstable. It is rarely used, except in some parallel computations where advantages related to communication may outweight the disadvantage to instability.</p>
+</section>
+<section id="experiment-3-numerical-loss-of-orthogonality">
+<h2>Experiment 3: numerical loss of orthogonality<a class="headerlink" href="#experiment-3-numerical-loss-of-orthogonality" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">qr</span></code> function in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> uses Housholder triangularization which is explained below. We test it on a matrix whose columns are almost parallel and compare with GS algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.70000</span><span class="p">,</span> <span class="mf">0.70711</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.70001</span><span class="p">,</span> <span class="mf">0.70711</span><span class="p">]])</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Householder  QR = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">mgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modified  GS QR = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classical GS QR = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Householder  QR =  2.220446049250313e-16
+Modified  GS QR =  2.301438892308072e-11
+Classical GS QR =  2.301438892308072e-11
+</pre></div>
+</div>
+</div>
+</div>
+<p>The orthonormality of columns of <span class="math notranslate nohighlight">\(Q\)</span> is not accurate to machine precision using the classical or modified GS algorithm (they are identical for <span class="math notranslate nohighlight">\(2 \times2\)</span> case).</p>
+</section>
+<section id="householder-triangularization">
+<h2>Householder triangularization<a class="headerlink" href="#householder-triangularization" title="Link to this heading">#</a></h2>
+<p>The Householder method returns the full QR factorization. In the Algorithm given in the book, <span class="math notranslate nohighlight">\(R\)</span> is computed in place of <span class="math notranslate nohighlight">\(A\)</span>, but here we make a copy and then modify it, because we want to keep <span class="math notranslate nohighlight">\(A\)</span> for verification.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need sign function with sign(0) = 1</span>
+<span class="k">def</span> <span class="nf">sign</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span>
+
+<span class="k">def</span> <span class="nf">house</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>    
+    <span class="c1"># Algorithm 10.1</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">e1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">e1</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">);</span> <span class="n">V</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+    
+    <span class="c1"># Algorithm 10.3</span>
+    <span class="c1"># Compute Q as Q*I</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="c1"># Compute i&#39;th column of Q</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">])</span> <span class="o">*</span> <span class="n">V</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+        
+    <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us test the above method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">house</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check that <span class="math notranslate nohighlight">\(A=QR\)</span> is satisfied</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">Q</span> <span class="o">@</span> <span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2212453270876722e-15)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Chect that columns of <span class="math notranslate nohighlight">\(Q\)</span> are orthonormal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.771561172376096e-16)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Experiment 3: numerical loss of orthogonality<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>We repeat the previous test using our own implementation of Householder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.70000</span><span class="p">,</span> <span class="mf">0.70711</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.70001</span><span class="p">,</span> <span class="mf">0.70711</span><span class="p">]])</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">house</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Householder QR = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">mgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modified GS QR = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Householder QR =  1.1102230246251565e-16
+Modified GS QR =  2.301438892308072e-11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="eigenfaces.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Eigenfaces</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="least_squares.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interpolation and fitting by polynomial</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-gram-schmidt-algorithm">Classical Gram-Schmidt algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-gram-schmidt">Modified Gram-Schmidt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-1-discrete-legendre-polynomials">Experiment 1: Discrete Legendre polynomials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-2-classical-vs-modified-gram-schmidt">Experiment 2: Classical vs modified Gram-Schmidt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-numerical-loss-of-orthogonality">Experiment 3: numerical loss of orthogonality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#householder-triangularization">Householder triangularization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Experiment 3: numerical loss of orthogonality</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Praveen Chandrashekar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
