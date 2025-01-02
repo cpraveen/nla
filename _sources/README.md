@@ -4,8 +4,8 @@ Codes developed for a course on numerical linear algebra based on the book
 
 > L. N. Trefethen and D. Bau: Numerical Linear Algebra, SIAM
 
-`Original:` [bitbucket.org/cpraveen/nla](https://www.bitbucket.org/cpraveen/nla)  
-`Mirrored:` [github.com/cpraveen/nla](https://www.github.com/cpraveen/nla)
+`Original:` [github.com/cpraveen/nla](https://www.github.com/cpraveen/nla)  
+`Mirrored:` [bitbucket.org/cpraveen/nla](https://www.bitbucket.org/cpraveen/nla)
 
 **WARNING**: These codes are used to illustrate the algorithms in the book. They are not written to be efficient implementations of those algorithms.
 
