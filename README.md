@@ -2,10 +2,10 @@
 
 Codes developed for a course on numerical linear algebra based on the book 
 
-L. N. Trefethen and D. Bau: Numerical Linear Algebra, SIAM
+> L. N. Trefethen and D. Bau: Numerical Linear Algebra, SIAM
 
-`Original:` https://www.bitbucket.org/cpraveen/nla <br/>
-`Mirrored:` https://www.github.com/cpraveen/nla
+`Original:` [bitbucket.org/cpraveen/nla](https://www.bitbucket.org/cpraveen/nla)  
+`Mirrored:` [github.com/cpraveen/nla](https://www.github.com/cpraveen/nla)
 
 **WARNING**: These codes are used to illustrate the algorithms in the book. They are not written to be efficient implementations of those algorithms.
 
@@ -83,9 +83,9 @@ The following links open individual files in colab.
 
 ## More code examples
 
-* https://github.com/cpraveen/na/tree/master/la
-* https://github.com/cpraveen/numpde/tree/master/bvp1d
-* https://github.com/cpraveen/numpde/tree/master/bvp2d
+* [github/cpraveen/na/la](https://github.com/cpraveen/na/tree/master/la)
+* [github/cpraveen/numpde/bvp1d](https://github.com/cpraveen/numpde/tree/master/bvp1d)
+* [github/cpraveen/numpde/bvp2d](https://github.com/cpraveen/numpde/tree/master/bvp2d)
 
 ## References
 
