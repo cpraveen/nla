@@ -11,7 +11,7 @@ Codes developed for a course on numerical linear algebra based on the book
 
 ## Python tutorial
 
-The codes are written in Python and as Jupyter notebooks. A short Python tutorial is available [here](http://www.github.com/cpraveen/python).
+The codes are written in Python and as Jupyter notebooks. A short Python tutorial is available [here](http://cpraveen.github.io/python).
 
 ## DATA files
 
