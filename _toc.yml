@@ -1,0 +1,24 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README.md
+chapters:
+- file: src/svd.ipynb
+  sections:
+  - file: src/dog.ipynb
+  - file: src/ovarian_cancer.ipynb
+  - file: src/eigenfaces.ipynb
+- file: src/qr.ipynb
+- file: src/least_squares.ipynb
+- file: src/wilkinson_poly.ipynb
+- file: src/floating_point.ipynb
+- file: src/house_stability.ipynb
+- file: src/tri_sys.ipynb
+- file: src/least_squares_stability.ipynb
+- file: src/gauss_elim.ipynb
+- file: src/gauss_elim_stab.ipynb
+- file: src/cholesky.ipynb
+- file: src/hessenberg.ipynb
+- file: src/power.ipynb
+- file: src/qr_eig.ipynb
