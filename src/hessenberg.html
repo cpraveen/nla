@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -400,13 +400,14 @@
 <p>The upper-triangular Hessenberg form has zeros below the first sub-diagonal</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
+\newcommand{\star}{\color{red}*}
 \begin{bmatrix}
-* &amp; * &amp; * &amp; * &amp; * &amp; * \\
-* &amp; * &amp; * &amp; * &amp; * &amp; * \\
-0 &amp; * &amp; * &amp; * &amp; * &amp; * \\
-0 &amp; 0 &amp; * &amp; * &amp; * &amp; * \\
-0 &amp; 0 &amp; 0 &amp; * &amp; * &amp; * \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; * &amp; * \\
+\star &amp; *     &amp; *     &amp; *     &amp; *     &amp; *     \\
+*     &amp; \star &amp; *     &amp; *     &amp; *     &amp; *     \\
+0     &amp; *     &amp; \star &amp; *     &amp; *     &amp; *     \\
+0     &amp; 0     &amp; *     &amp; \star &amp; *     &amp; *     \\
+0     &amp; 0     &amp; 0     &amp; *     &amp; \star &amp; *     \\
+0     &amp; 0     &amp; 0     &amp; 0     &amp; *     &amp; \star \\
 \end{bmatrix}
 \end{split}\]</div>
 <div class="cell docutils container">
@@ -452,13 +453,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.13e-01 -1.46e+00 -5.74e-01  6.57e-02  3.78e-01  8.74e-02  2.23e-02]
- [-1.50e+00  2.95e+00  7.12e-01 -1.00e-01  5.56e-01 -8.69e-01 -1.61e-01]
- [ 5.55e-17  9.99e-01 -1.33e-01  2.49e-02  2.78e-01  1.75e-01  3.61e-01]
- [ 0.00e+00  5.55e-17  3.43e-01 -1.75e-01 -3.77e-01 -4.48e-02  5.10e-01]
- [ 0.00e+00 -2.78e-17 -1.39e-17 -4.72e-01 -8.37e-02 -4.84e-01  1.26e-01]
- [ 0.00e+00 -1.11e-16 -5.55e-17  1.39e-17  8.46e-01 -2.00e-01 -1.31e-01]
- [ 0.00e+00 -2.22e-16  1.39e-17 -1.11e-16  0.00e+00 -1.37e-01  4.40e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 8.00e-01 -6.12e-01  9.72e-01  2.25e-01 -1.45e-03  2.42e-01 -4.91e-01]
+ [-1.64e+00  2.36e+00 -1.51e+00  3.95e-01 -1.62e-04 -3.21e-01  1.82e-01]
+ [ 0.00e+00 -1.66e+00  5.23e-01  8.15e-02  2.21e-01  4.76e-01 -6.27e-01]
+ [ 0.00e+00  1.11e-16 -7.87e-01 -3.98e-02  2.04e-01  1.51e-01  1.32e-01]
+ [ 0.00e+00 -5.55e-17  0.00e+00 -3.65e-01  4.34e-02 -5.45e-01  2.98e-01]
+ [ 0.00e+00 -2.22e-16  0.00e+00  0.00e+00  4.09e-01 -7.62e-02  1.45e-01]
+ [ 0.00e+00  2.22e-16  1.11e-16  0.00e+00  0.00e+00 -6.29e-02 -4.19e-01]]
 </pre></div>
 </div>
 </div>
@@ -474,11 +475,11 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
  [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 5.55e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 0.00e+00  5.55e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 0.00e+00 -2.78e-17 -1.39e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
- [ 0.00e+00 -1.11e-16 -5.55e-17  1.39e-17  0.00e+00  0.00e+00  0.00e+00]
- [ 0.00e+00 -2.22e-16  1.39e-17 -1.11e-16  0.00e+00  0.00e+00  0.00e+00]]
+ [ 0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00  1.11e-16  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00 -5.55e-17  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00 -2.22e-16  0.00e+00  0.00e+00  0.00e+00  0.00e+00  0.00e+00]
+ [ 0.00e+00  2.22e-16  1.11e-16  0.00e+00  0.00e+00  0.00e+00  0.00e+00]]
 </pre></div>
 </div>
 </div>
@@ -508,7 +509,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.661338147750939e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.881784197001252e-16
 </pre></div>
 </div>
 </div>
@@ -527,13 +528,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.05 -1.15 -0.   -0.   -0.    0.   -0.  ]
- [-1.15  2.32  1.72  0.   -0.    0.   -0.  ]
- [ 0.    1.72  0.42 -0.33  0.   -0.    0.  ]
- [ 0.    0.   -0.33  0.21 -0.39 -0.    0.  ]
- [ 0.    0.    0.   -0.39 -0.16  0.27 -0.  ]
- [ 0.   -0.    0.   -0.    0.27 -0.21  0.29]
- [ 0.    0.    0.   -0.    0.    0.29  0.41]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.66 -1.23 -0.    0.    0.    0.    0.  ]
+ [-1.23  2.23  1.36  0.   -0.    0.   -0.  ]
+ [ 0.    1.36  0.86  0.36  0.   -0.   -0.  ]
+ [-0.    0.    0.36 -0.09 -0.39  0.    0.  ]
+ [-0.    0.   -0.   -0.39  0.22 -0.29  0.  ]
+ [-0.    0.   -0.   -0.   -0.29 -0.04 -0.13]
+ [-0.    0.    0.   -0.    0.   -0.13 -0.5 ]]
 </pre></div>
 </div>
 </div>

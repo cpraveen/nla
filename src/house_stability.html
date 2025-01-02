@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -398,8 +398,9 @@
 <p>Construct a random upper-triangular <span class="math notranslate nohighlight">\(R\)</span>, a random unitary <span class="math notranslate nohighlight">\(Q\)</span>, form <span class="math notranslate nohighlight">\(A=Q R\)</span> and compute its QR decomposition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">triu</span><span class="p">(</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)))</span> 
-<span class="n">Q</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)))</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>    <span class="c1"># n x n matrix</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">triu</span><span class="p">(</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)))</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">Q</span><span class="nd">@R</span>
 <span class="n">Q2</span><span class="p">,</span> <span class="n">R2</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
@@ -414,7 +415,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.9397306303815105e-05)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(5.16366379493592e-05)
 </pre></div>
 </div>
 </div>
@@ -426,7 +427,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2499857080661972e-06)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.9282959061934748e-06)
 </pre></div>
 </div>
 </div>
@@ -439,7 +440,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.664746992094026e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.375147036985576e-16)
 </pre></div>
 </div>
 </div>
@@ -448,14 +449,14 @@
 <p>If we form factors which are equally or more accurate but have random errors</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q3</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">1e-4</span> <span class="o">*</span> <span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-<span class="n">R3</span> <span class="o">=</span> <span class="n">R</span> <span class="o">+</span> <span class="mf">1e-4</span> <span class="o">*</span> <span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q3</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">+</span> <span class="mf">1e-5</span> <span class="o">*</span> <span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">R3</span> <span class="o">=</span> <span class="n">R</span> <span class="o">+</span> <span class="mf">1e-5</span> <span class="o">*</span> <span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
 <span class="n">norm</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">Q3</span><span class="nd">@R3</span><span class="p">)</span> <span class="o">/</span> <span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.000723874808631254)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.31731385725757e-05)
 </pre></div>
 </div>
 </div>
