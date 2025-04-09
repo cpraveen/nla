@@ -373,7 +373,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -389,6 +391,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compression">Compression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -442,7 +453,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/711368b4114f18c7fecd1e33fce3d825faa255df96c363423414a72e3386c32d.svg" src="../_images/711368b4114f18c7fecd1e33fce3d825faa255df96c363423414a72e3386c32d.svg" />
+<img alt="../_images/3f8600e6a54cc715d3a8c5643e116f855b8abfc32a4d6ea7270255444c4e1695.svg" src="../_images/3f8600e6a54cc715d3a8c5643e116f855b8abfc32a4d6ea7270255444c4e1695.svg" />
 </div>
 </div>
 <p>and plot the first 36 of them.</p>
@@ -465,7 +476,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/078d3498f02c0e2e9edc0a7d8330e21710ab96d46f2e793441ad15215fdc94f6.svg" src="../_images/078d3498f02c0e2e9edc0a7d8330e21710ab96d46f2e793441ad15215fdc94f6.svg" />
+<img alt="../_images/b5798d508720c59f2ed288250b7eecc431511a1be182af9a36602adbe5742e65.svg" src="../_images/b5798d508720c59f2ed288250b7eecc431511a1be182af9a36602adbe5742e65.svg" />
 </div>
 </div>
 <p>Let us use the first 36 people as the data. We compute the average image and subtract it from all images. The images are then stacked as columns of a matrix <span class="math notranslate nohighlight">\(X\)</span> of size <span class="math notranslate nohighlight">\(m \times n = 32256 \times 2282\)</span>.</p>
@@ -482,21 +493,21 @@ x_1 - \bar x &amp; x_2 - \bar x &amp; \ldots &amp; x_n - \bar x \\
 \end{bmatrix} \in R^{m \times n}
 \end{split}\]</div>
 <p>The reduced SVD is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="amsmath math notranslate nohighlight" id="equation-b3d603b8-f7b1-4289-9b0a-ed214c3d900b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b3d603b8-f7b1-4289-9b0a-ed214c3d900b" title="Permalink to this equation">#</a></span>\[\begin{gather}
 X = \hat U \hat\Sigma V^\top, \qquad 
 \hat U = \begin{bmatrix} 
 | &amp; | &amp; &amp; | \\
 u_1 &amp; u_2 &amp; \ldots &amp; u_n \\ 
 | &amp; | &amp; &amp; | 
-\end{bmatrix}, \qquad
+\end{bmatrix} \\
 \hat \Sigma = \textrm{diag}[\sigma_1, \ldots, \sigma_n], \qquad
 V = \begin{bmatrix} 
 | &amp; | &amp; &amp; | \\
 v_1 &amp; v_2 &amp; \ldots &amp; v_n \\ 
 | &amp; | &amp; &amp; | 
 \end{bmatrix}
-\end{split}\]</div>
+\end{gather}\]</div>
 <p>Each <span class="math notranslate nohighlight">\(u_j \in R^m\)</span> and these form an orthonormal basis for images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,7 +561,7 @@ v_1 &amp; v_2 &amp; \ldots &amp; v_n \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f8fd265db47d5a707fc140853f9a89c1b77707007aa7339cedb67ae3dca5061c.svg" src="../_images/f8fd265db47d5a707fc140853f9a89c1b77707007aa7339cedb67ae3dca5061c.svg" />
+<img alt="../_images/868d4540a578cce45180c6d102b0b67726bbf1d3e417da3d324dd6b40358b646.svg" src="../_images/868d4540a578cce45180c6d102b0b67726bbf1d3e417da3d324dd6b40358b646.svg" />
 </div>
 </div>
 <p>The singular values decrease very rapidly.</p>
@@ -574,9 +585,11 @@ v_1 &amp; v_2 &amp; \ldots &amp; v_n \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/27c7d9d95dbdd3f6c268eba15879d84e1eaac9e6120080c5c004bafe80d5ed95.svg" src="../_images/27c7d9d95dbdd3f6c268eba15879d84e1eaac9e6120080c5c004bafe80d5ed95.svg" />
+<img alt="../_images/c79b50ab755884a05adb7ac78c0305e6eb32afcc49dd3f1de769851aac356516.svg" src="../_images/c79b50ab755884a05adb7ac78c0305e6eb32afcc49dd3f1de769851aac356516.svg" />
 </div>
 </div>
+<section id="compression">
+<h2>Compression<a class="headerlink" href="#compression" title="Link to this heading">#</a></h2>
 <p>The principal components of the <span class="math notranslate nohighlight">\(j\)</span>’th image are</p>
 <div class="math notranslate nohighlight">
 \[
@@ -624,10 +637,13 @@ u_1 &amp; u_2 &amp; \ldots &amp; u_r \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a4b34ad960dd172aa9786d16fc64ff30e01928a3ba564f284670a10199e1ec1d.svg" src="../_images/a4b34ad960dd172aa9786d16fc64ff30e01928a3ba564f284670a10199e1ec1d.svg" />
+<img alt="../_images/806a7e9083ffdc31557218d082f53c0b3c50651a66a97bfc5cf84a942f9697cc.svg" src="../_images/806a7e9083ffdc31557218d082f53c0b3c50651a66a97bfc5cf84a942f9697cc.svg" />
 </div>
 </div>
 <p>The first 1600 principal components give a good approximation of the true image. This can provide a method for image compression, we only need to store a few principal components for each image. The average image and the basis must also be stored, but these are common to all images.</p>
+</section>
+<section id="classification">
+<h2>Classification<a class="headerlink" href="#classification" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Project person 2 and 7 onto PC5 and PC6</span>
@@ -655,10 +671,11 @@ u_1 &amp; u_2 &amp; \ldots &amp; u_r \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2ec1f788a56b6cf7eb5a5f91eafb326149a4fb1c9395b70d8849c6edca6ce873.svg" src="../_images/2ec1f788a56b6cf7eb5a5f91eafb326149a4fb1c9395b70d8849c6edca6ce873.svg" />
+<img alt="../_images/247b41aa987f8c0f7b61e809d65b6580dcb8cbad0e3dc2baaebb10ab4e325cc5.svg" src="../_images/247b41aa987f8c0f7b61e809d65b6580dcb8cbad0e3dc2baaebb10ab4e325cc5.svg" />
 </div>
 </div>
 <p>The two persons seem to be well separated in PC space. This suggests that we can use the principal components for image recognition.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -715,6 +732,22 @@ u_1 &amp; u_2 &amp; \ldots &amp; u_r \\
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compression">Compression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

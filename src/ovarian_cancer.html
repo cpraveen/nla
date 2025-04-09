@@ -431,7 +431,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../DATA/ovariancancer_obs.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../DATA/ovariancancer_grp.csv&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">grp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">grp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># There is extra last empty value, ignore it</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of obs = &#39;</span><span class="p">,</span> <span class="n">obs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of grp= &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">))</span>
 </pre></div>
@@ -439,7 +439,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of obs =  (216, 4000)
-Length of grp=  217
+Length of grp=  216
 </pre></div>
 </div>
 </div>
@@ -455,6 +455,7 @@ A =
 \end{bmatrix}
 \end{split}\]</div>
 <p>i.e., each row <span class="math notranslate nohighlight">\(p_j \in R^{4000}\)</span> corresponds to the gene expression of one patient.</p>
+<p>The data in <code class="docutils literal notranslate"><span class="pre">grp</span></code> is either <code class="docutils literal notranslate"><span class="pre">Cancer</span></code> or <code class="docutils literal notranslate"><span class="pre">Normal</span></code>.</p>
 <p>Compute the reduced SVD</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -511,7 +512,7 @@ Shape of VT =  (216, 4000)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9244447e0bd47a98248bcdd9a6de1d561ab92dbd897feda8ec6a7e1afba4b1f1.svg" src="../_images/9244447e0bd47a98248bcdd9a6de1d561ab92dbd897feda8ec6a7e1afba4b1f1.svg" />
+<img alt="../_images/2f8a50a418eeaa99ba4cbcd8a01f57ff24224dbf271fadacf23b038e3bbfbbfc.svg" src="../_images/2f8a50a418eeaa99ba4cbcd8a01f57ff24224dbf271fadacf23b038e3bbfbbfc.svg" />
 </div>
 </div>
 <p>Let us write the <span class="math notranslate nohighlight">\(j\)</span>’th patient data in the basis of singular vectors</p>
@@ -551,7 +552,7 @@ x_j = v_1^\top p_j, \qquad y_j = v_2^\top p_j, \qquad z_j = v_3^\top p_j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d51c54f0ec82c8661c93fd6a3f0f989c7179aa68d85dee490180e1ef51609610.svg" src="../_images/d51c54f0ec82c8661c93fd6a3f0f989c7179aa68d85dee490180e1ef51609610.svg" />
+<img alt="../_images/39a690553a993e010591824342dc9da80d35c343efa04326c1e01a3d723f0a8e.svg" src="../_images/39a690553a993e010591824342dc9da80d35c343efa04326c1e01a3d723f0a8e.svg" />
 </div>
 </div>
 <p>The points corresponding to cancer (red cross) and non-cancer (blue dot) appear well separated. We can use this to classify the data for a new patient by identifying to which of the two groups it belongs.</p>
