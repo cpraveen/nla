@@ -484,7 +484,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.3306690738754696e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2026066931324847e-16)
 </pre></div>
 </div>
 </div>
@@ -526,7 +526,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.1102230246251565e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6653345369377348e-16)
 </pre></div>
 </div>
 </div>
@@ -539,7 +539,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.3306690738754696e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.220446049250313e-16)
 </pre></div>
 </div>
 </div>
@@ -569,18 +569,22 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d98753dca122f22b4b11d48673edf992af1a6e65a95ac6de054feec55ccd72e9.svg" src="../_images/d98753dca122f22b4b11d48673edf992af1a6e65a95ac6de054feec55ccd72e9.svg" />
+<img alt="../_images/f45c2d93332e778c5c256457ccbcaad8fa32265b19bfa92df312931a141a67da.svg" src="../_images/f45c2d93332e778c5c256457ccbcaad8fa32265b19bfa92df312931a141a67da.svg" />
 </div>
 </div>
 </section>
 <section id="experiment-2-classical-vs-modified-gram-schmidt">
 <h2>Experiment 2: Classical vs modified Gram-Schmidt<a class="headerlink" href="#experiment-2-classical-vs-modified-gram-schmidt" title="Link to this heading">#</a></h2>
 <p>First we construct a square matrix <span class="math notranslate nohighlight">\(A\)</span> with random singular vectors and widely varying sngular values spaced by factors of 2 between <span class="math notranslate nohighlight">\(2^{-1}\)</span> and <span class="math notranslate nohighlight">\(2^{-80}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+A = U \textrm{ diag}[2^{-1}, 2^{-2}, \ldots, 2^{-80}] V^*
+\]</div>
 <p>Generate random unitary matrices <span class="math notranslate nohighlight">\(U,V\)</span> using QR factorization,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span>
-<span class="n">V</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span>
+<span class="n">V</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">))</span>
 <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">81</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">S</span> <span class="o">@</span> <span class="n">V</span>
 </pre></div>
@@ -615,7 +619,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cc4146eaa67c52a478b64a6b8b9352f3f90eacfe4f8c5436679220e9dc6b3aae.svg" src="../_images/cc4146eaa67c52a478b64a6b8b9352f3f90eacfe4f8c5436679220e9dc6b3aae.svg" />
+<img alt="../_images/fc47fcf3a698aead0d731cfbfbe8819b1e31c9982f6690fd15beb67e97190085.svg" src="../_images/fc47fcf3a698aead0d731cfbfbe8819b1e31c9982f6690fd15beb67e97190085.svg" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(r_{jj}\)</span> decrease with <span class="math notranslate nohighlight">\(j\)</span>, closely following the line <span class="math notranslate nohighlight">\(2^{-j}\)</span>.  It is not exactly equal to the <span class="math notranslate nohighlight">\(j\)</span>’th singular value of <span class="math notranslate nohighlight">\(A\)</span>, but is a reasonably good approximation. This can be seen as follows. The SVD of <span class="math notranslate nohighlight">\(A\)</span> can be written as</p>
@@ -629,7 +633,7 @@ A = 2^{-1} u_1 v_1^* + 2^{-2} u_2 v_2^* + \ldots + 2^{-80} u_{80} v_{80}^*
 a_j = 2^{-1} \bar{v}_{j1} u_1 + 2^{-2} \bar{v}_{j2} u_2 + \ldots + 2^{-80} \bar{v}_{j,80} u_{80}
 \]</div>
 <p>Since the singular vectors are random, we can expect the numbers <span class="math notranslate nohighlight">\(\bar{v}_{ji}\)</span> are all of similar magnitude, on the order of <span class="math notranslate nohighlight">\(80^{-1/2} \approx 0.1\)</span>.</p>
-<p>When we take the QR factorization, the first vector <span class="math notranslate nohighlight">\(q_1\)</span> is likely to be approximately equal to <span class="math notranslate nohighlight">\(u_1\)</span>, with <span class="math notranslate nohighlight">\(r_{11}\)</span> of the order of <span class="math notranslate nohighlight">\(2^{-1} \times 80^{-1/2}\)</span>. Orthogonalization at the next step will yield a second vector <span class="math notranslate nohighlight">\(q_2\)</span> approximately equal to <span class="math notranslate nohighlight">\(u_2\)</span>, with <span class="math notranslate nohighlight">\(r_{22}\)</span> on the order of <span class="math notranslate nohighlight">\(2^{-2} \times 80^{-1/2}\)</span> – and so on.</p>
+<p>When we take the QR factorization, the first vector <span class="math notranslate nohighlight">\(q_1\)</span> is likely to be approximately equal to <span class="math notranslate nohighlight">\(u_1\)</span>, with <span class="math notranslate nohighlight">\(r_{11}\)</span> of the order of <span class="math notranslate nohighlight">\(2^{-1} \bar{v}_{j1} \approx 2^{-1} \times 80^{-1/2}\)</span>. Orthogonalization at the next step will yield a second vector <span class="math notranslate nohighlight">\(q_2\)</span> approximately equal to <span class="math notranslate nohighlight">\(u_2\)</span>, with <span class="math notranslate nohighlight">\(r_{22}\)</span> on the order of <span class="math notranslate nohighlight">\(2^{-2} \times 80^{-1/2}\)</span> – and so on.</p>
 <p>In the computation, the decrease of <span class="math notranslate nohighlight">\(r_{jj}\)</span> does not continue all the way to <span class="math notranslate nohighlight">\(j=80\)</span>. This is a consequence of rounding errors on the computer. With the classical Gram-Schmidt algorithm, the numbers never become smaller than about <span class="math notranslate nohighlight">\(10^{-8}\)</span>. With the modified Gram-Schmidt algorithm, they shrink eight orders of magnitude further, down to about <span class="math notranslate nohighlight">\(10^{-16}\)</span>, which the machine precision.</p>
 <p>Classical Gram-Schmidt is known to be unstable. It is rarely used, except in some parallel computations where advantages related to communication may outweight the disadvantage to instability.</p>
 </section>
@@ -717,7 +721,7 @@ Classical GS QR =  2.301438892308072e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.440892098500626e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.27675647831893e-15)
 </pre></div>
 </div>
 </div>
