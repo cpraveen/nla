@@ -403,6 +403,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-numerical-loss-of-orthogonality">Experiment 3: numerical loss of orthogonality</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#householder-triangularization">Householder triangularization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Experiment 3: numerical loss of orthogonality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-deficient-case">Rank deficient case</a></li>
 </ul>
             </nav>
         </div>
@@ -484,7 +485,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2026066931324847e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.302070312656211e-16)
 </pre></div>
 </div>
 </div>
@@ -526,7 +527,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6653345369377348e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.220446049250313e-16)
 </pre></div>
 </div>
 </div>
@@ -539,7 +540,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.220446049250313e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.53397840516755e-16)
 </pre></div>
 </div>
 </div>
@@ -569,7 +570,7 @@ A = Q R
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f45c2d93332e778c5c256457ccbcaad8fa32265b19bfa92df312931a141a67da.svg" src="../_images/f45c2d93332e778c5c256457ccbcaad8fa32265b19bfa92df312931a141a67da.svg" />
+<img alt="../_images/17f202791c9f4d5c166c7703c9a9ab1c3db1c489d85be4ab526d82f315d86ec1.svg" src="../_images/17f202791c9f4d5c166c7703c9a9ab1c3db1c489d85be4ab526d82f315d86ec1.svg" />
 </div>
 </div>
 </section>
@@ -619,7 +620,7 @@ A = U \textrm{ diag}[2^{-1}, 2^{-2}, \ldots, 2^{-80}] V^*
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fc47fcf3a698aead0d731cfbfbe8819b1e31c9982f6690fd15beb67e97190085.svg" src="../_images/fc47fcf3a698aead0d731cfbfbe8819b1e31c9982f6690fd15beb67e97190085.svg" />
+<img alt="../_images/0582325673a79f834092fae0ff903745b85fae07d25913c8f37327e5f5e43ae4.svg" src="../_images/0582325673a79f834092fae0ff903745b85fae07d25913c8f37327e5f5e43ae4.svg" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(r_{jj}\)</span> decrease with <span class="math notranslate nohighlight">\(j\)</span>, closely following the line <span class="math notranslate nohighlight">\(2^{-j}\)</span>.  It is not exactly equal to the <span class="math notranslate nohighlight">\(j\)</span>’th singular value of <span class="math notranslate nohighlight">\(A\)</span>, but is a reasonably good approximation. This can be seen as follows. The SVD of <span class="math notranslate nohighlight">\(A\)</span> can be written as</p>
@@ -721,7 +722,7 @@ Classical GS QR =  2.301438892308072e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.27675647831893e-15)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.3322676295501878e-15)
 </pre></div>
 </div>
 </div>
@@ -734,7 +735,7 @@ Classical GS QR =  2.301438892308072e-11
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.661338147750939e-16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(8.881784197001252e-16)
 </pre></div>
 </div>
 </div>
@@ -761,6 +762,36 @@ Modified GS QR =  2.301438892308072e-11
 </div>
 </div>
 </div>
+</section>
+<section id="rank-deficient-case">
+<h2>Rank deficient case<a class="headerlink" href="#rank-deficient-case" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">A</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 2nd col = 0th col + 1st col</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">house</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q = 
+ [[-0.3614825   0.62929573  0.00535279 -0.68795976]
+ [-0.6491394   0.18892249  0.52405008  0.51797475]
+ [-0.60537991 -0.2416831  -0.75285746  0.09115971]
+ [-0.28541829 -0.71406194  0.3981815  -0.50010343]]
+R = 
+ [[-1.25800549e+00  1.16899179e+00 -8.90137024e-02 -9.66576646e-02]
+ [ 0.00000000e+00  6.41501346e-01  6.41501346e-01  3.04786833e-01]
+ [ 0.00000000e+00  0.00000000e+00  1.11022302e-16 -1.08460348e+00]
+ [ 0.00000000e+00 -1.11022302e-16  0.00000000e+00  4.48415877e-01]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">R[2,2]</span></code> is almost zero.</p>
 </section>
 </section>
 
@@ -835,6 +866,7 @@ Modified GS QR =  2.301438892308072e-11
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-numerical-loss-of-orthogonality">Experiment 3: numerical loss of orthogonality</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#householder-triangularization">Householder triangularization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Experiment 3: numerical loss of orthogonality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-deficient-case">Rank deficient case</a></li>
 </ul>
   </nav></div>
 

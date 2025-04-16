@@ -397,10 +397,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy-linalg-qr">Using numpy.linalg.qr</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-householder-triangularization">Using Householder triangularization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-our-own-householder-triangularization">Using our own Householder triangularization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-modified-gram-schmidt">Using modified Gram-Schmidt</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-normal-equations">Using normal equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-svd">Using SVD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
             </nav>
         </div>
@@ -414,7 +415,29 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stability-of-least-squares-algorithms">
 <h1>Stability of least squares algorithms<a class="headerlink" href="#stability-of-least-squares-algorithms" title="Link to this heading">#</a></h1>
-<p>We consider the problem of fitting a polynomial to a given function on uniformly spaced points.</p>
+<p>We consider the problem of fitting a polynomial to a given function on <span class="math notranslate nohighlight">\(m\)</span> uniformly spaced points.</p>
+<div class="math notranslate nohighlight">
+\[
+p(t) = \exp(\sin(4t), \qquad t \in [0,1]
+\]</div>
+<p><span class="math notranslate nohighlight">\(p\)</span> is of degree <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+p(t_i) = b_i = \exp(\sin(4t_i), \qquad 0 \le i \le m-1
+\]</div>
+<p>This leads to over-determined system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A x = b \qquad \textrm{where} \qquad
+t = \begin{bmatrix}
+t_0 \\
+t_1 \\
+\vdots \\
+t_{m-1}
+\end{bmatrix} \in R^m \qquad
+A = [t^0, t^1, \ldots, t^{n-1}] \in R^{m \times n}
+\end{split}\]</div>
+<p>The elements of <span class="math notranslate nohighlight">\(x\)</span> are the coefficients of the monomials <span class="math notranslate nohighlight">\(t^i\)</span> in <span class="math notranslate nohighlight">\(p(t)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linspace</span><span class="p">,</span><span class="n">empty</span><span class="p">,</span><span class="n">exp</span><span class="p">,</span><span class="n">sin</span><span class="p">,</span><span class="n">arcsin</span><span class="p">,</span><span class="n">column_stack</span>
@@ -439,6 +462,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Because of the normalization, the last element of <span class="math notranslate nohighlight">\(x\)</span> which is coefficient of <span class="math notranslate nohighlight">\(t^{n-1}\)</span> should be equal to 1.</p>
 <p>Solve the problem using Python functions and examine the condition number <span class="math notranslate nohighlight">\(\kappa\)</span>, the angle <span class="math notranslate nohighlight">\(\theta\)</span> between <span class="math notranslate nohighlight">\(b\)</span> and range(A) and <span class="math notranslate nohighlight">\(\eta\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -460,6 +484,21 @@ eta   = 2.1036e+05
 </div>
 </div>
 </div>
+<p>Using reduced QR, the least squares solution is obtained from</p>
+<div class="math notranslate nohighlight">
+\[
+A = Q R, \qquad R x = Q^* b, \qquad R = \textrm{upper triangular}
+\]</div>
+<p>In the augmented algorithm, form the augmented matrix <span class="math notranslate nohighlight">\([A \ b]\)</span> and find its QR decomposition</p>
+<div class="math notranslate nohighlight">
+\[
+[A \ b] = Q R
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+Q^* b = \textrm{last column of R}
+\]</div>
 <section id="using-numpy-linalg-qr">
 <h2>Using numpy.linalg.qr<a class="headerlink" href="#using-numpy-linalg-qr" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -499,8 +538,8 @@ x_15, x_15-1 = 1.0000000926395132 9.26395131717328e-08
 </div>
 </div>
 </section>
-<section id="using-householder-triangularization">
-<h2>Using Householder triangularization<a class="headerlink" href="#using-householder-triangularization" title="Link to this heading">#</a></h2>
+<section id="using-our-own-householder-triangularization">
+<h2>Using our own Householder triangularization<a class="headerlink" href="#using-our-own-householder-triangularization" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Householder triangularization</span>
@@ -518,6 +557,7 @@ x_15, x_15-1 = 0.9999997622620326 -2.3773796742343478e-07
 </div>
 </div>
 </div>
+<p>numpy.linalg.qr is doing some column pivoting so it has an order of magnitude smaller error.</p>
 </section>
 <section id="using-modified-gram-schmidt">
 <h2>Using modified Gram-Schmidt<a class="headerlink" href="#using-modified-gram-schmidt" title="Link to this heading">#</a></h2>
@@ -557,6 +597,7 @@ x_15, x_15-1 = 1.0000000397100135 3.971001349967196e-08
 </div>
 </div>
 </div>
+<p>The augmented mgs has similar error to numpy.linalg.qr which is based on householder.</p>
 </section>
 <section id="using-normal-equations">
 <h2>Using normal equations<a class="headerlink" href="#using-normal-equations" title="Link to this heading">#</a></h2>
@@ -574,7 +615,7 @@ x_15, x_15-1 = 1.0000000397100135 3.971001349967196e-08
 x_15, x_15-1 = -0.8970336811736241 -1.8970336811736241
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/tc/17nf7v3j53jgg4db9vxl40g00000gn/T/ipykernel_835/1749421503.py:2: LinAlgWarning: Ill-conditioned matrix (rcond=3.88679e-19): result may not be accurate.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/tc/17nf7v3j53jgg4db9vxl40g00000gn/T/ipykernel_91921/1749421503.py:2: LinAlgWarning: Ill-conditioned matrix (rcond=3.88679e-19): result may not be accurate.
   x = solve(A.T@A, A.T@b, assume_a=&#39;sym&#39;)
 </pre></div>
 </div>
@@ -583,6 +624,11 @@ x_15, x_15-1 = -0.8970336811736241 -1.8970336811736241
 </section>
 <section id="using-svd">
 <h2>Using SVD<a class="headerlink" href="#using-svd" title="Link to this heading">#</a></h2>
+<p>Using reduced SVD</p>
+<div class="math notranslate nohighlight">
+\[
+A = U \Sigma V^*, \qquad x = V \Sigma^{-1} U^* b
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SVD</span>
@@ -600,6 +646,10 @@ x_15,x_15-1= 1.000000092629737 9.262973699186716e-08
 </div>
 </div>
 </div>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<p>Instead of using monomials as a basis for polynomials, use Legendre polynomials and solve the least squares problem using the different methods.</p>
 </section>
 </section>
 
@@ -668,10 +718,11 @@ x_15,x_15-1= 1.000000092629737 9.262973699186716e-08
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy-linalg-qr">Using numpy.linalg.qr</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-householder-triangularization">Using Householder triangularization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-our-own-householder-triangularization">Using our own Householder triangularization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-modified-gram-schmidt">Using modified Gram-Schmidt</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-normal-equations">Using normal equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-svd">Using SVD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
   </nav></div>
 
